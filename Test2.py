@@ -84,7 +84,9 @@ class PythonOrgSearch(unittest.TestCase):
 
         time.sleep(5)
         driver.find_element_by_name('public').click()
-        driver.find_element_by_id('id_answer').send_keys(random.choice('answer'))
+        driver.find_element_by_id('id_answer').send_keys(answer)
+
+        driver.find_element_by_name('_save').click()
 
         time.sleep(2)
 
