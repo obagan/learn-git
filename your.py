@@ -1,4 +1,4 @@
-from random import choice
-from string import ascii_letters
-
-print(''.join(choice(ascii_letters) for i in range(12))) #генерация случайной строки из 12 символов
+print(list(range(3))[2])
+id = 1
+url = "/admin/sneh/feedbackform/" + str(id) + "/change/"
+print (url)

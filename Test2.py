@@ -23,6 +23,7 @@ class PythonOrgSearch(unittest.TestCase):
                           'Что за сайт?',
                           'Почем нынче чугун?',
                           'Может, и сюда прикрутим блокчейн?', ]
+        answer = ['Вы недостойны ответа короля']
 
         from selenium.webdriver.common.by import By
         element = driver.find_element(By.XPATH, '//*[@id="bs-example-navbar-collapse-1"]/ul/li[4]/a')
@@ -76,28 +77,21 @@ class PythonOrgSearch(unittest.TestCase):
                 a.click()
                 break
 
-        driver.find_element_by_name('action').click()
-        driver.find_element_by_css_selector('[value=delete_selected]').click()
-        driver.find_element_by_name('index').click()
+        # driver.find_element_by_tag_name('tr')
+        url = 'http://sneh.ru/admin/sneh/feedbackform/'+str(message_id)+'/change/'
+
+        driver.get(url)
+
+        time.sleep(5)
+        driver.find_element_by_name('public').click()
+        driver.find_element_by_id('id_answer').send_keys(random.choice('answer'))
+
+        time.sleep(2)
 
 
-        # for x in element:
-        # print(x)
-        # break
-        # a = eval(element)
-        # for i in message_id:
-
-        # a = range(element)
-
-        # k = element.keys()
-        # a = k.sort()
-
-
-        #   a = element.get_attribute('value')
-        #  i+=1
-        # print(a)
-
-        # message_id = re.findall(".*№([0-9]+).*", element.text)[0]
+        # driver.find_element_by_name('action').click()
+        # driver.find_element_by_css_selector('[value=delete_selected]').click()
+        # driver.find_element_by_name('index').click()
 
 
 def tearDown(self):
